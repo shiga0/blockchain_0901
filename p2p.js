@@ -22,12 +22,14 @@ let MessageType = {
 const myPeerId = crypto.randomBytes(32);
 console.log('myPeerId: ' + myPeerId.toString('hex'));
 
+chain.createDb(myPeerId.toString('hex'));
+
 const config = defaults({
     id: myPeerId,
 });
 
 const swarm = Swarm(config);
-    
+
 (async () => {
     const port = await getPort();
 
